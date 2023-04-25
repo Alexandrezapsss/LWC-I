@@ -1,0 +1,22 @@
+<template>
+    <!--Mostrar a imagem do pokemon esto sem ideias deuses da programação me deem uma luz....ou uma porrada na cabeça que me faça aprender kkk-->
+    <lightning-card title="Quem é o Pokemon Caraca Cara">
+        <div class="slds-m-around_small"><!--Classe para dar margim só isso-->
+            <!--Abaixo a minha img recebe uma variavel que vai ser do meu component JS-->
+            <div if:true={acertou} class="slds-m-bottom_medium">
+                <img src={pokemonMostrar} alt="QUEM É ESSE POKEMON????" srcset="" />
+            </div>
+            <template if:false={acertou}><!--MDs usar o template para criar uma condição de "else" em cima da variavel verificadora-->
+                <img src={pokemonOculto} alt="QUEM É ESSE POKEMON????" srcset="" />
+            </template>
+            <br>
+            <!--Quero ver se consigo fazer um input onde a pessoa colocar o nome do pokemon para tentar advinhar a resposta-->
+            <lightning-input label="Quem é esse pokemon?" value={nomePokemon}
+                onchange={pegaResposta}></lightning-input><!--OnChange após a mudança no input ele realiza a função que está dentro dele-->
+            <div class="slds-m-top_medium">
+                <lightning-button variant="destructive" label="Quem é esse Pokemon!!!" title="Destructive action"
+                    onclick={verificarPokemon} class="slds-m-left_x-small"></lightning-button>
+            </div>
+        </div>
+    </lightning-card>
+</template>
